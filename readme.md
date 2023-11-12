@@ -37,5 +37,5 @@ source env/bin/activate</code></li>
   <code>python manage.py migrate</code></li>
 </ol>
 <br>
-И еще один момент, нужно было записать массив в таблицу, в sqlite3, насколько я знаю, этого сделать нельзя. 
-В Postgres можно, но в ТЗ не написано что нужно его использовать. В этом случае можно было бы использовать ArrayField из django.contrib.postgres.fields
+И еще один момент, нужно было записать массив в таблицу, насколько я знаю, этого сделать нельзя. Для этого я использовал JsonField.
+В Postgres можно, но в ТЗ не написано что нужно его использовать. В этом случае можно было бы использовать ArrayField или ListField из django.contrib.postgres.fields
