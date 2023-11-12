@@ -13,7 +13,7 @@ class FullModuleInfo(models.Model):
     module = models.ForeignKey(Module, on_delete=models.CASCADE, verbose_name="Модуль", related_name="full")
     description = models.CharField(max_length=30, verbose_name="Описание")
     version = models.CharField(max_length=100, verbose_name="Версия")
-    value = models.CharField(max_length=1000, verbose_name="Массив")
+    value = models.JSONField(max_length=1000, verbose_name="Массив")
 
     def __str__(self):
         return f"{self.module}/{self.description}"
