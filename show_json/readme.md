@@ -24,10 +24,9 @@
 <h2>Как развернуть окружение:</h2>
 <ol>
 <li>Переходим в папку проекта:</li>
-<code>cd .\show_json\</code>
+<code>cd show_json/</code>
 <li>Создаем и активируем виртуальное окружение:<br>
-<code>
-python -m venv env<br>
+<code>python -m venv env<br>
 source env/bin/activate</code></li>
 <li>Установить все данные из файла requirements.txt с помощью команды
 <code>pip install -r requirements.txt</code>
