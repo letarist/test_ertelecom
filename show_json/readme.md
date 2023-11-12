@@ -32,6 +32,9 @@ source env/bin/activate</code></li>
 <code>pip install -r requirements.txt</code>
 После установки запустить локальный сервер командой
 <code>python manage.py runserver</code></li>
+  <li>Проводим и применяем миграции:
+  <code>python manage.py makemigrations</code><br>
+  <code>python manage.py migrate</code></li>
 </ol>
 <br>
 И еще один момент, нужно было записать массив в таблицу, в sqlite3, насколько я знаю, этого сделать нельзя. 
