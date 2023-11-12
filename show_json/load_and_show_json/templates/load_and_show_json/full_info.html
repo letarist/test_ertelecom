@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Full Module Info</title>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <th>Модуль</th>
+        <th>Функция</th>
+        <th>Описание</th>
+        <th>Версия</th>
+        <th>Массив</th>
+    </tr>
+
+    {% for module in modules %}
+        <tr>
+            <td rowspan="{{ module.full.count }}">{{ module.module }}</td>
+            <td rowspan="{{ module.full.count }}">{{ module.function }}</td>
+            {% for info in module.full.all %}
+                {% if forloop.first %}
+                    <td>{{ info.description }}</td>
+                    <td>{{ info.version }}</td>
+                    <td><code>{{ info.value }}</code></td>
+                {% else %}
+                    <tr>
+                        <td>{{ info.description }}</td>
+                        <td>{{ info.version }}</td>
+                        <td><code>{{ info.value }}</code></td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>

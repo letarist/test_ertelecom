@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Functions Info</title>
+</head>
+<body>
+
+<table border="1">
+    <tr>
+        <th>Модуль</th>
+        <th>Функция</th>
+        <th>Описание</th>
+        <th>Код</th>
+    </tr>
+
+    {% for function_info in functions_info %}
+        <tr>
+            <td>{{ function_info.module }}</td>
+            <td>{{ function_info.function }}</td>
+            <td>{{ function_info.docstring }}</td>
+            <td><code>{{ function_info.source_code|safe }}</code></td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module and Function Search</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+  <div>
+    <label htmlFor="module_input">Module:</label>
+    <input type="text" id="module_input" name="module">
+
+    <label htmlFor="function_input">Function:</label>
+    <input type="text" id="function_input" name="function">
+  </div>
+
+  <!-- Блок для отображения результатов -->
+  <div id="result"></div>
+
+  <script>
+    $(document).ready(function () {
+      $('#module_input').on('input', function() {
+        search();
+      });
+
+      $('#function_input').on('input', function() {
+        search();
+      });
+
+      function search() {
+        let moduleValue = $('#module_input').val();
+        let functionValue = $('#function_input').val();
+
+        $.ajax({
+          type: 'GET',
+          url: '/json/',
+          data: {module: moduleValue, function: functionValue},
+          success: function (data) {
+            displayResults(data);
+          },
+          error: function (error) {
+            $('#result').html('Error: ' + error.responseText);
+          }
+        });
+      }
+      function displayResults(data) {
+        $('#result').html('');
+
+        if (data.length > 0) {
+          data.forEach(function (item) {
+            $('#result').append('<p>Module: ' + item.module + ', Function: ' + item.function + '</p>');
+            $('#result').append('<ul>');
+            item.data.forEach(function (info) {
+              $('#result').append('<li>Description: ' + info.description + ', Version: ' + info.version + ', Value: ' + info.value + '</li>');
+            });
+            $('#result').append('</ul>');
+          });
+        } else {
+          $('#result').html('Нет данных для поиска');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
