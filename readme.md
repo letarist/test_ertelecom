@@ -29,12 +29,12 @@
 <code>python -m venv env<br>
 source env/bin/activate</code></li>
 <li>Установить все данные из файла requirements.txt с помощью команды
-<code>pip install -r requirements.txt</code>
-После установки запустить локальный сервер командой
-<code>python manage.py runserver</code></li>
-  <li>Проводим и применяем миграции:
+<code>pip install -r requirements.txt</code></li>
+  <li>Создаем и применяем миграции:
   <code>python manage.py makemigrations</code><br>
   <code>python manage.py migrate</code></li>
+  <li>Запустить локальный сервер командой
+<code>python manage.py runserver</code></li></li>
 </ol>
 <br>
 И еще один момент, нужно было записать массив в таблицу, насколько я знаю, этого сделать нельзя. Для этого я использовал JsonField.
